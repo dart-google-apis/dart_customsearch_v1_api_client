@@ -153,13 +153,13 @@ class CseResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Search> list(String q, {String c2coff, String cr, String cref, String cx, String dateRestrict, String exactTerms, String excludeTerms, String fileType, String filter, String gl, String googlehost, String highRange, String hl, String hq, String imgColorType, String imgDominantColor, String imgSize, String imgType, String linkSite, String lowRange, String lr, int num, String orTerms, String relatedSite, String rights, String safe, String searchType, String siteSearch, String siteSearchFilter, String sort, int start, Map optParams}) {
-    var completer = new Completer();
+  async.Future<Search> list(core.String q, {core.String c2coff, core.String cr, core.String cref, core.String cx, core.String dateRestrict, core.String exactTerms, core.String excludeTerms, core.String fileType, core.String filter, core.String gl, core.String googlehost, core.String highRange, core.String hl, core.String hq, core.String imgColorType, core.String imgDominantColor, core.String imgSize, core.String imgType, core.String linkSite, core.String lowRange, core.String lr, core.int num, core.String orTerms, core.String relatedSite, core.String rights, core.String safe, core.String searchType, core.String siteSearch, core.String siteSearchFilter, core.String sort, core.int start, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "v1";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (c2coff != null) queryParams["c2coff"] = c2coff;
     if (cr != null) queryParams["cr"] = cr;
     if (cref != null) queryParams["cref"] = cref;

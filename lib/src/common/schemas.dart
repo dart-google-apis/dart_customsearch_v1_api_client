@@ -1,18 +1,18 @@
 part of customsearch_v1_api_client;
 
 class Context {
-  String title;
+  core.String title;
 
   /** Create new Context from JSON data */
-  Context.fromJson(Map json) {
+  Context.fromJson(core.Map json) {
     if (json.containsKey("title")) {
       title = json["title"];
     }
   }
 
   /** Create JSON Object for Context */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (title != null) {
       output["title"] = title;
@@ -22,20 +22,20 @@ class Context {
   }
 
   /** Return String representation of Context */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class Promotion {
-  List<PromotionBodyLines> bodyLines;
-  String displayLink;
-  String htmlTitle;
+  core.List<PromotionBodyLines> bodyLines;
+  core.String displayLink;
+  core.String htmlTitle;
   PromotionImage image;
-  String link;
-  String title;
+  core.String link;
+  core.String title;
 
   /** Create new Promotion from JSON data */
-  Promotion.fromJson(Map json) {
+  Promotion.fromJson(core.Map json) {
     if (json.containsKey("bodyLines")) {
       bodyLines = [];
       json["bodyLines"].forEach((item) {
@@ -60,11 +60,11 @@ class Promotion {
   }
 
   /** Create JSON Object for Promotion */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (bodyLines != null) {
-      output["bodyLines"] = new List();
+      output["bodyLines"] = new core.List();
       bodyLines.forEach((item) {
         output["bodyLines"].add(item.toJson());
       });
@@ -89,17 +89,17 @@ class Promotion {
   }
 
   /** Return String representation of Promotion */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class PromotionImage {
-  int height;
-  String source;
-  int width;
+  core.int height;
+  core.String source;
+  core.int width;
 
   /** Create new PromotionImage from JSON data */
-  PromotionImage.fromJson(Map json) {
+  PromotionImage.fromJson(core.Map json) {
     if (json.containsKey("height")) {
       height = json["height"];
     }
@@ -112,8 +112,8 @@ class PromotionImage {
   }
 
   /** Create JSON Object for PromotionImage */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (height != null) {
       output["height"] = height;
@@ -129,18 +129,18 @@ class PromotionImage {
   }
 
   /** Return String representation of PromotionImage */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class PromotionBodyLines {
-  String htmlTitle;
-  String link;
-  String title;
-  String url;
+  core.String htmlTitle;
+  core.String link;
+  core.String title;
+  core.String url;
 
   /** Create new PromotionBodyLines from JSON data */
-  PromotionBodyLines.fromJson(Map json) {
+  PromotionBodyLines.fromJson(core.Map json) {
     if (json.containsKey("htmlTitle")) {
       htmlTitle = json["htmlTitle"];
     }
@@ -156,8 +156,8 @@ class PromotionBodyLines {
   }
 
   /** Create JSON Object for PromotionBodyLines */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (htmlTitle != null) {
       output["htmlTitle"] = htmlTitle;
@@ -176,51 +176,51 @@ class PromotionBodyLines {
   }
 
   /** Return String representation of PromotionBodyLines */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class Query {
-  int count;
-  String cr;
-  String cref;
-  String cx;
-  String dateRestrict;
-  String disableCnTwTranslation;
-  String exactTerms;
-  String excludeTerms;
-  String fileType;
-  String filter;
-  String gl;
-  String googleHost;
-  String highRange;
-  String hl;
-  String hq;
-  String imgColorType;
-  String imgDominantColor;
-  String imgSize;
-  String imgType;
-  String inputEncoding;
-  String language;
-  String linkSite;
-  String lowRange;
-  String orTerms;
-  String outputEncoding;
-  String relatedSite;
-  String rights;
-  String safe;
-  String searchTerms;
-  String searchType;
-  String siteSearch;
-  String siteSearchFilter;
-  String sort;
-  int startIndex;
-  int startPage;
-  String title;
-  String totalResults;
+  core.int count;
+  core.String cr;
+  core.String cref;
+  core.String cx;
+  core.String dateRestrict;
+  core.String disableCnTwTranslation;
+  core.String exactTerms;
+  core.String excludeTerms;
+  core.String fileType;
+  core.String filter;
+  core.String gl;
+  core.String googleHost;
+  core.String highRange;
+  core.String hl;
+  core.String hq;
+  core.String imgColorType;
+  core.String imgDominantColor;
+  core.String imgSize;
+  core.String imgType;
+  core.String inputEncoding;
+  core.String language;
+  core.String linkSite;
+  core.String lowRange;
+  core.String orTerms;
+  core.String outputEncoding;
+  core.String relatedSite;
+  core.String rights;
+  core.String safe;
+  core.String searchTerms;
+  core.String searchType;
+  core.String siteSearch;
+  core.String siteSearchFilter;
+  core.String sort;
+  core.int startIndex;
+  core.int startPage;
+  core.String title;
+  core.String totalResults;
 
   /** Create new Query from JSON data */
-  Query.fromJson(Map json) {
+  Query.fromJson(core.Map json) {
     if (json.containsKey("count")) {
       count = json["count"];
     }
@@ -335,8 +335,8 @@ class Query {
   }
 
   /** Create JSON Object for Query */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (count != null) {
       output["count"] = count;
@@ -454,29 +454,29 @@ class Query {
   }
 
   /** Return String representation of Query */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class Result {
-  String cacheId;
-  String displayLink;
-  String fileFormat;
-  String formattedUrl;
-  String htmlFormattedUrl;
-  String htmlSnippet;
-  String htmlTitle;
+  core.String cacheId;
+  core.String displayLink;
+  core.String fileFormat;
+  core.String formattedUrl;
+  core.String htmlFormattedUrl;
+  core.String htmlSnippet;
+  core.String htmlTitle;
   ResultImage image;
-  String kind;
-  List<ResultLabels> labels;
-  String link;
-  String mime;
+  core.String kind;
+  core.List<ResultLabels> labels;
+  core.String link;
+  core.String mime;
   ResultPagemap pagemap;
-  String snippet;
-  String title;
+  core.String snippet;
+  core.String title;
 
   /** Create new Result from JSON data */
-  Result.fromJson(Map json) {
+  Result.fromJson(core.Map json) {
     if (json.containsKey("cacheId")) {
       cacheId = json["cacheId"];
     }
@@ -528,8 +528,8 @@ class Result {
   }
 
   /** Create JSON Object for Result */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (cacheId != null) {
       output["cacheId"] = cacheId;
@@ -559,7 +559,7 @@ class Result {
       output["kind"] = kind;
     }
     if (labels != null) {
-      output["labels"] = new List();
+      output["labels"] = new core.List();
       labels.forEach((item) {
         output["labels"].add(item.toJson());
       });
@@ -584,40 +584,40 @@ class Result {
   }
 
   /** Return String representation of Result */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class ResultPagemap {
 
   /** Create new ResultPagemap from JSON data */
-  ResultPagemap.fromJson(Map json) {
+  ResultPagemap.fromJson(core.Map json) {
   }
 
   /** Create JSON Object for ResultPagemap */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
 
     return output;
   }
 
   /** Return String representation of ResultPagemap */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class ResultImage {
-  int byteSize;
-  String contextLink;
-  int height;
-  int thumbnailHeight;
-  String thumbnailLink;
-  int thumbnailWidth;
-  int width;
+  core.int byteSize;
+  core.String contextLink;
+  core.int height;
+  core.int thumbnailHeight;
+  core.String thumbnailLink;
+  core.int thumbnailWidth;
+  core.int width;
 
   /** Create new ResultImage from JSON data */
-  ResultImage.fromJson(Map json) {
+  ResultImage.fromJson(core.Map json) {
     if (json.containsKey("byteSize")) {
       byteSize = json["byteSize"];
     }
@@ -642,8 +642,8 @@ class ResultImage {
   }
 
   /** Create JSON Object for ResultImage */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (byteSize != null) {
       output["byteSize"] = byteSize;
@@ -671,16 +671,16 @@ class ResultImage {
   }
 
   /** Return String representation of ResultImage */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class ResultLabels {
-  String displayName;
-  String name;
+  core.String displayName;
+  core.String name;
 
   /** Create new ResultLabels from JSON data */
-  ResultLabels.fromJson(Map json) {
+  ResultLabels.fromJson(core.Map json) {
     if (json.containsKey("displayName")) {
       displayName = json["displayName"];
     }
@@ -690,8 +690,8 @@ class ResultLabels {
   }
 
   /** Create JSON Object for ResultLabels */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (displayName != null) {
       output["displayName"] = displayName;
@@ -704,22 +704,22 @@ class ResultLabels {
   }
 
   /** Return String representation of ResultLabels */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class Search {
   Context context;
-  List<Result> items;
-  String kind;
-  List<Promotion> promotions;
+  core.List<Result> items;
+  core.String kind;
+  core.List<Promotion> promotions;
   SearchQueries queries;
   SearchSearchInformation searchInformation;
   SearchSpelling spelling;
   SearchUrl url;
 
   /** Create new Search from JSON data */
-  Search.fromJson(Map json) {
+  Search.fromJson(core.Map json) {
     if (json.containsKey("context")) {
       context = new Context.fromJson(json["context"]);
     }
@@ -753,14 +753,14 @@ class Search {
   }
 
   /** Create JSON Object for Search */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (context != null) {
       output["context"] = context.toJson();
     }
     if (items != null) {
-      output["items"] = new List();
+      output["items"] = new core.List();
       items.forEach((item) {
         output["items"].add(item.toJson());
       });
@@ -769,7 +769,7 @@ class Search {
       output["kind"] = kind;
     }
     if (promotions != null) {
-      output["promotions"] = new List();
+      output["promotions"] = new core.List();
       promotions.forEach((item) {
         output["promotions"].add(item.toJson());
       });
@@ -791,16 +791,16 @@ class Search {
   }
 
   /** Return String representation of Search */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class SearchSpelling {
-  String correctedQuery;
-  String htmlCorrectedQuery;
+  core.String correctedQuery;
+  core.String htmlCorrectedQuery;
 
   /** Create new SearchSpelling from JSON data */
-  SearchSpelling.fromJson(Map json) {
+  SearchSpelling.fromJson(core.Map json) {
     if (json.containsKey("correctedQuery")) {
       correctedQuery = json["correctedQuery"];
     }
@@ -810,8 +810,8 @@ class SearchSpelling {
   }
 
   /** Create JSON Object for SearchSpelling */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (correctedQuery != null) {
       output["correctedQuery"] = correctedQuery;
@@ -824,18 +824,18 @@ class SearchSpelling {
   }
 
   /** Return String representation of SearchSpelling */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class SearchSearchInformation {
-  String formattedSearchTime;
-  String formattedTotalResults;
-  num searchTime;
-  String totalResults;
+  core.String formattedSearchTime;
+  core.String formattedTotalResults;
+  core.num searchTime;
+  core.String totalResults;
 
   /** Create new SearchSearchInformation from JSON data */
-  SearchSearchInformation.fromJson(Map json) {
+  SearchSearchInformation.fromJson(core.Map json) {
     if (json.containsKey("formattedSearchTime")) {
       formattedSearchTime = json["formattedSearchTime"];
     }
@@ -851,8 +851,8 @@ class SearchSearchInformation {
   }
 
   /** Create JSON Object for SearchSearchInformation */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (formattedSearchTime != null) {
       output["formattedSearchTime"] = formattedSearchTime;
@@ -871,16 +871,16 @@ class SearchSearchInformation {
   }
 
   /** Return String representation of SearchSearchInformation */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class SearchUrl {
-  String template;
-  String type;
+  core.String template;
+  core.String type;
 
   /** Create new SearchUrl from JSON data */
-  SearchUrl.fromJson(Map json) {
+  SearchUrl.fromJson(core.Map json) {
     if (json.containsKey("template")) {
       template = json["template"];
     }
@@ -890,8 +890,8 @@ class SearchUrl {
   }
 
   /** Create JSON Object for SearchUrl */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (template != null) {
       output["template"] = template;
@@ -904,26 +904,26 @@ class SearchUrl {
   }
 
   /** Return String representation of SearchUrl */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class SearchQueries {
 
   /** Create new SearchQueries from JSON data */
-  SearchQueries.fromJson(Map json) {
+  SearchQueries.fromJson(core.Map json) {
   }
 
   /** Create JSON Object for SearchQueries */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
 
     return output;
   }
 
   /** Return String representation of SearchQueries */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
