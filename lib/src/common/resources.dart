@@ -1,8 +1,8 @@
 part of customsearch_v1_api_client;
 
-class CseResource extends Resource {
+class CseResource_ extends Resource {
 
-  CseResource(Client client) : super(client) {
+  CseResource_(Client client) : super(client) {
   }
 
   /**
@@ -229,7 +229,7 @@ class CseResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 

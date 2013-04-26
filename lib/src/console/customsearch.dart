@@ -4,8 +4,8 @@ part of customsearch_v1_api_console;
 /** Lets you search over a website or collection of websites */
 class Customsearch extends ConsoleClient {
 
-  CseResource _cse;
-  CseResource get cse => _cse;
+  CseResource_ _cse;
+  CseResource_ get cse => _cse;
 
   /**
    * Data format for the response.
@@ -59,6 +59,6 @@ class Customsearch extends ConsoleClient {
   Customsearch([oauth2.OAuth2Console auth]) : super(auth) {
     basePath = "/customsearch/";
     rootUrl = "https://www.googleapis.com:443/";
-    _cse = new CseResource(this);
+    _cse = new CseResource_(this);
   }
 }
