@@ -217,7 +217,7 @@ class Query {
   core.int startIndex;
   core.int startPage;
   core.String title;
-  core.String totalResults;
+  core.int totalResults;
 
   /** Create new Query from JSON data */
   Query.fromJson(core.Map json) {
@@ -832,7 +832,7 @@ class SearchSearchInformation {
   core.String formattedSearchTime;
   core.String formattedTotalResults;
   core.num searchTime;
-  core.String totalResults;
+  core.int totalResults;
 
   /** Create new SearchSearchInformation from JSON data */
   SearchSearchInformation.fromJson(core.Map json) {

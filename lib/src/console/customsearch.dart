@@ -58,7 +58,7 @@ class Customsearch extends ConsoleClient {
 
   Customsearch([oauth2.OAuth2Console auth]) : super(auth) {
     basePath = "/customsearch/";
-    rootUrl = "https://www.googleapis.com:443/";
+    rootUrl = "https://www.googleapis.com/";
     _cse = new CseResource_(this);
   }
 }
