@@ -330,7 +330,11 @@ class Query {
       title = json["title"];
     }
     if (json.containsKey("totalResults")) {
-      totalResults = json["totalResults"];
+      if(json["totalResults"] is core.String){
+        totalResults = core.int.parse(json["totalResults"]);
+      }else{
+        totalResults = json["totalResults"];
+      }
     }
   }
 
@@ -846,7 +850,11 @@ class SearchSearchInformation {
       searchTime = json["searchTime"];
     }
     if (json.containsKey("totalResults")) {
-      totalResults = json["totalResults"];
+      if(json["totalResults"] is core.String){
+        totalResults = core.int.parse(json["totalResults"]);
+      }else{
+        totalResults = json["totalResults"];
+      }
     }
   }
 

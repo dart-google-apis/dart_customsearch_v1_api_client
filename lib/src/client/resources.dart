@@ -154,7 +154,6 @@ class CseResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<Search> list(core.String q, {core.String c2coff, core.String cr, core.String cref, core.String cx, core.String dateRestrict, core.String exactTerms, core.String excludeTerms, core.String fileType, core.String filter, core.String gl, core.String googlehost, core.String highRange, core.String hl, core.String hq, core.String imgColorType, core.String imgDominantColor, core.String imgSize, core.String imgType, core.String linkSite, core.String lowRange, core.String lr, core.int num, core.String orTerms, core.String relatedSite, core.String rights, core.String safe, core.String searchType, core.String siteSearch, core.String siteSearchFilter, core.String sort, core.int start, core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "v1";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -229,16 +228,13 @@ class CseResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Search.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Search.fromJson(data));
   }
 }
 
