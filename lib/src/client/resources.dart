@@ -1,9 +1,11 @@
-part of customsearch_v1_api_client;
+part of customsearch_v1_api;
 
-class CseResource_ extends Resource {
+class CseResource_ {
 
-  CseResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  CseResource_(Client client) :
+      _client = client;
 
   /**
    * Returns metadata about the search performed, metadata about the custom search engine used for the search, and the search results.

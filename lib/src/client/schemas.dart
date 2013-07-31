@@ -1,10 +1,16 @@
-part of customsearch_v1_api_client;
+part of customsearch_v1_api;
 
 class Context {
+
+  core.List<core.List<ContextFacets>> facets;
+
   core.String title;
 
   /** Create new Context from JSON data */
   Context.fromJson(core.Map json) {
+    if (json.containsKey("facets")) {
+      facets = json["facets"].map((facetsItem) => facetsItem.map((facetsItem2) => new ContextFacets.fromJson(facetsItem2)).toList()).toList();
+    }
     if (json.containsKey("title")) {
       title = json["title"];
     }
@@ -14,6 +20,9 @@ class Context {
   core.Map toJson() {
     var output = new core.Map();
 
+    if (facets != null) {
+      output["facets"] = facets.map((facetsItem) => facetsItem.map((facetsItem2) => facetsItem2.toJson()).toList()).toList();
+    }
     if (title != null) {
       output["title"] = title;
     }
@@ -26,21 +35,59 @@ class Context {
 
 }
 
+class ContextFacets {
+
+  core.String anchor;
+
+  core.String label;
+
+  /** Create new ContextFacets from JSON data */
+  ContextFacets.fromJson(core.Map json) {
+    if (json.containsKey("anchor")) {
+      anchor = json["anchor"];
+    }
+    if (json.containsKey("label")) {
+      label = json["label"];
+    }
+  }
+
+  /** Create JSON Object for ContextFacets */
+  core.Map toJson() {
+    var output = new core.Map();
+
+    if (anchor != null) {
+      output["anchor"] = anchor;
+    }
+    if (label != null) {
+      output["label"] = label;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of ContextFacets */
+  core.String toString() => JSON.stringify(this.toJson());
+
+}
+
 class Promotion {
+
   core.List<PromotionBodyLines> bodyLines;
+
   core.String displayLink;
+
   core.String htmlTitle;
+
   PromotionImage image;
+
   core.String link;
+
   core.String title;
 
   /** Create new Promotion from JSON data */
   Promotion.fromJson(core.Map json) {
     if (json.containsKey("bodyLines")) {
-      bodyLines = [];
-      json["bodyLines"].forEach((item) {
-        bodyLines.add(new PromotionBodyLines.fromJson(item));
-      });
+      bodyLines = json["bodyLines"].map((bodyLinesItem) => new PromotionBodyLines.fromJson(bodyLinesItem)).toList();
     }
     if (json.containsKey("displayLink")) {
       displayLink = json["displayLink"];
@@ -64,10 +111,7 @@ class Promotion {
     var output = new core.Map();
 
     if (bodyLines != null) {
-      output["bodyLines"] = new core.List();
-      bodyLines.forEach((item) {
-        output["bodyLines"].add(item.toJson());
-      });
+      output["bodyLines"] = bodyLines.map((bodyLinesItem) => bodyLinesItem.toJson()).toList();
     }
     if (displayLink != null) {
       output["displayLink"] = displayLink;
@@ -93,50 +137,14 @@ class Promotion {
 
 }
 
-class PromotionImage {
-  core.int height;
-  core.String source;
-  core.int width;
-
-  /** Create new PromotionImage from JSON data */
-  PromotionImage.fromJson(core.Map json) {
-    if (json.containsKey("height")) {
-      height = json["height"];
-    }
-    if (json.containsKey("source")) {
-      source = json["source"];
-    }
-    if (json.containsKey("width")) {
-      width = json["width"];
-    }
-  }
-
-  /** Create JSON Object for PromotionImage */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (height != null) {
-      output["height"] = height;
-    }
-    if (source != null) {
-      output["source"] = source;
-    }
-    if (width != null) {
-      output["width"] = width;
-    }
-
-    return output;
-  }
-
-  /** Return String representation of PromotionImage */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
 class PromotionBodyLines {
+
   core.String htmlTitle;
+
   core.String link;
+
   core.String title;
+
   core.String url;
 
   /** Create new PromotionBodyLines from JSON data */
@@ -180,43 +188,123 @@ class PromotionBodyLines {
 
 }
 
+class PromotionImage {
+
+  core.int height;
+
+  core.String source;
+
+  core.int width;
+
+  /** Create new PromotionImage from JSON data */
+  PromotionImage.fromJson(core.Map json) {
+    if (json.containsKey("height")) {
+      height = json["height"];
+    }
+    if (json.containsKey("source")) {
+      source = json["source"];
+    }
+    if (json.containsKey("width")) {
+      width = json["width"];
+    }
+  }
+
+  /** Create JSON Object for PromotionImage */
+  core.Map toJson() {
+    var output = new core.Map();
+
+    if (height != null) {
+      output["height"] = height;
+    }
+    if (source != null) {
+      output["source"] = source;
+    }
+    if (width != null) {
+      output["width"] = width;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of PromotionImage */
+  core.String toString() => JSON.stringify(this.toJson());
+
+}
+
 class Query {
+
   core.int count;
+
   core.String cr;
+
   core.String cref;
+
   core.String cx;
+
   core.String dateRestrict;
+
   core.String disableCnTwTranslation;
+
   core.String exactTerms;
+
   core.String excludeTerms;
+
   core.String fileType;
+
   core.String filter;
+
   core.String gl;
+
   core.String googleHost;
+
   core.String highRange;
+
   core.String hl;
+
   core.String hq;
+
   core.String imgColorType;
+
   core.String imgDominantColor;
+
   core.String imgSize;
+
   core.String imgType;
+
   core.String inputEncoding;
+
   core.String language;
+
   core.String linkSite;
+
   core.String lowRange;
+
   core.String orTerms;
+
   core.String outputEncoding;
+
   core.String relatedSite;
+
   core.String rights;
+
   core.String safe;
+
   core.String searchTerms;
+
   core.String searchType;
+
   core.String siteSearch;
+
   core.String siteSearchFilter;
+
   core.String sort;
+
   core.int startIndex;
+
   core.int startPage;
+
   core.String title;
+
   core.int totalResults;
 
   /** Create new Query from JSON data */
@@ -330,11 +418,7 @@ class Query {
       title = json["title"];
     }
     if (json.containsKey("totalResults")) {
-      if(json["totalResults"] is core.String){
-        totalResults = core.int.parse(json["totalResults"]);
-      }else{
-        totalResults = json["totalResults"];
-      }
+      totalResults = (json["totalResults"] is core.String) ? core.int.parse(json["totalResults"]) : json["totalResults"];
     }
   }
 
@@ -463,20 +547,35 @@ class Query {
 }
 
 class Result {
+
   core.String cacheId;
+
   core.String displayLink;
+
   core.String fileFormat;
+
   core.String formattedUrl;
+
   core.String htmlFormattedUrl;
+
   core.String htmlSnippet;
+
   core.String htmlTitle;
+
   ResultImage image;
+
   core.String kind;
+
   core.List<ResultLabels> labels;
+
   core.String link;
+
   core.String mime;
-  ResultPagemap pagemap;
+
+  core.Map<core.String, core.List<core.Map<core.String, core.Object>>> pagemap;
+
   core.String snippet;
+
   core.String title;
 
   /** Create new Result from JSON data */
@@ -509,10 +608,7 @@ class Result {
       kind = json["kind"];
     }
     if (json.containsKey("labels")) {
-      labels = [];
-      json["labels"].forEach((item) {
-        labels.add(new ResultLabels.fromJson(item));
-      });
+      labels = json["labels"].map((labelsItem) => new ResultLabels.fromJson(labelsItem)).toList();
     }
     if (json.containsKey("link")) {
       link = json["link"];
@@ -521,7 +617,7 @@ class Result {
       mime = json["mime"];
     }
     if (json.containsKey("pagemap")) {
-      pagemap = new ResultPagemap.fromJson(json["pagemap"]);
+      pagemap = _mapMap(json["pagemap"], (pagemapItem) => pagemapItem.map((pagemapItem2) => _mapMap(pagemapItem2)).toList());
     }
     if (json.containsKey("snippet")) {
       snippet = json["snippet"];
@@ -563,10 +659,7 @@ class Result {
       output["kind"] = kind;
     }
     if (labels != null) {
-      output["labels"] = new core.List();
-      labels.forEach((item) {
-        output["labels"].add(item.toJson());
-      });
+      output["labels"] = labels.map((labelsItem) => labelsItem.toJson()).toList();
     }
     if (link != null) {
       output["link"] = link;
@@ -575,7 +668,7 @@ class Result {
       output["mime"] = mime;
     }
     if (pagemap != null) {
-      output["pagemap"] = pagemap.toJson();
+      output["pagemap"] = _mapMap(pagemap, (pagemapItem) => pagemapItem.map((pagemapItem2) => _mapMap(pagemapItem2)).toList());
     }
     if (snippet != null) {
       output["snippet"] = snippet;
@@ -592,32 +685,20 @@ class Result {
 
 }
 
-class ResultPagemap {
-
-  /** Create new ResultPagemap from JSON data */
-  ResultPagemap.fromJson(core.Map json) {
-  }
-
-  /** Create JSON Object for ResultPagemap */
-  core.Map toJson() {
-    var output = new core.Map();
-
-
-    return output;
-  }
-
-  /** Return String representation of ResultPagemap */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
 class ResultImage {
+
   core.int byteSize;
+
   core.String contextLink;
+
   core.int height;
+
   core.int thumbnailHeight;
+
   core.String thumbnailLink;
+
   core.int thumbnailWidth;
+
   core.int width;
 
   /** Create new ResultImage from JSON data */
@@ -680,7 +761,9 @@ class ResultImage {
 }
 
 class ResultLabels {
+
   core.String displayName;
+
   core.String name;
 
   /** Create new ResultLabels from JSON data */
@@ -713,13 +796,21 @@ class ResultLabels {
 }
 
 class Search {
+
   Context context;
+
   core.List<Result> items;
+
   core.String kind;
+
   core.List<Promotion> promotions;
-  SearchQueries queries;
+
+  core.Map<core.String, core.List<Query>> queries;
+
   SearchSearchInformation searchInformation;
+
   SearchSpelling spelling;
+
   SearchUrl url;
 
   /** Create new Search from JSON data */
@@ -728,22 +819,16 @@ class Search {
       context = new Context.fromJson(json["context"]);
     }
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Result.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Result.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
     }
     if (json.containsKey("promotions")) {
-      promotions = [];
-      json["promotions"].forEach((item) {
-        promotions.add(new Promotion.fromJson(item));
-      });
+      promotions = json["promotions"].map((promotionsItem) => new Promotion.fromJson(promotionsItem)).toList();
     }
     if (json.containsKey("queries")) {
-      queries = new SearchQueries.fromJson(json["queries"]);
+      queries = _mapMap(json["queries"], (queriesItem) => queriesItem.map((queriesItem2) => new Query.fromJson(queriesItem2)).toList());
     }
     if (json.containsKey("searchInformation")) {
       searchInformation = new SearchSearchInformation.fromJson(json["searchInformation"]);
@@ -764,22 +849,16 @@ class Search {
       output["context"] = context.toJson();
     }
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
     }
     if (promotions != null) {
-      output["promotions"] = new core.List();
-      promotions.forEach((item) {
-        output["promotions"].add(item.toJson());
-      });
+      output["promotions"] = promotions.map((promotionsItem) => promotionsItem.toJson()).toList();
     }
     if (queries != null) {
-      output["queries"] = queries.toJson();
+      output["queries"] = _mapMap(queries, (queriesItem) => queriesItem.map((queriesItem2) => queriesItem2.toJson()).toList());
     }
     if (searchInformation != null) {
       output["searchInformation"] = searchInformation.toJson();
@@ -799,8 +878,61 @@ class Search {
 
 }
 
+class SearchSearchInformation {
+
+  core.String formattedSearchTime;
+
+  core.String formattedTotalResults;
+
+  core.num searchTime;
+
+  core.int totalResults;
+
+  /** Create new SearchSearchInformation from JSON data */
+  SearchSearchInformation.fromJson(core.Map json) {
+    if (json.containsKey("formattedSearchTime")) {
+      formattedSearchTime = json["formattedSearchTime"];
+    }
+    if (json.containsKey("formattedTotalResults")) {
+      formattedTotalResults = json["formattedTotalResults"];
+    }
+    if (json.containsKey("searchTime")) {
+      searchTime = json["searchTime"];
+    }
+    if (json.containsKey("totalResults")) {
+      totalResults = (json["totalResults"] is core.String) ? core.int.parse(json["totalResults"]) : json["totalResults"];
+    }
+  }
+
+  /** Create JSON Object for SearchSearchInformation */
+  core.Map toJson() {
+    var output = new core.Map();
+
+    if (formattedSearchTime != null) {
+      output["formattedSearchTime"] = formattedSearchTime;
+    }
+    if (formattedTotalResults != null) {
+      output["formattedTotalResults"] = formattedTotalResults;
+    }
+    if (searchTime != null) {
+      output["searchTime"] = searchTime;
+    }
+    if (totalResults != null) {
+      output["totalResults"] = totalResults;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of SearchSearchInformation */
+  core.String toString() => JSON.stringify(this.toJson());
+
+}
+
 class SearchSpelling {
+
   core.String correctedQuery;
+
   core.String htmlCorrectedQuery;
 
   /** Create new SearchSpelling from JSON data */
@@ -832,59 +964,10 @@ class SearchSpelling {
 
 }
 
-class SearchSearchInformation {
-  core.String formattedSearchTime;
-  core.String formattedTotalResults;
-  core.num searchTime;
-  core.int totalResults;
-
-  /** Create new SearchSearchInformation from JSON data */
-  SearchSearchInformation.fromJson(core.Map json) {
-    if (json.containsKey("formattedSearchTime")) {
-      formattedSearchTime = json["formattedSearchTime"];
-    }
-    if (json.containsKey("formattedTotalResults")) {
-      formattedTotalResults = json["formattedTotalResults"];
-    }
-    if (json.containsKey("searchTime")) {
-      searchTime = json["searchTime"];
-    }
-    if (json.containsKey("totalResults")) {
-      if(json["totalResults"] is core.String){
-        totalResults = core.int.parse(json["totalResults"]);
-      }else{
-        totalResults = json["totalResults"];
-      }
-    }
-  }
-
-  /** Create JSON Object for SearchSearchInformation */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (formattedSearchTime != null) {
-      output["formattedSearchTime"] = formattedSearchTime;
-    }
-    if (formattedTotalResults != null) {
-      output["formattedTotalResults"] = formattedTotalResults;
-    }
-    if (searchTime != null) {
-      output["searchTime"] = searchTime;
-    }
-    if (totalResults != null) {
-      output["totalResults"] = totalResults;
-    }
-
-    return output;
-  }
-
-  /** Return String representation of SearchSearchInformation */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
 class SearchUrl {
+
   core.String template;
+
   core.String type;
 
   /** Create new SearchUrl from JSON data */
@@ -916,22 +999,16 @@ class SearchUrl {
 
 }
 
-class SearchQueries {
-
-  /** Create new SearchQueries from JSON data */
-  SearchQueries.fromJson(core.Map json) {
-  }
-
-  /** Create JSON Object for SearchQueries */
-  core.Map toJson() {
-    var output = new core.Map();
-
-
-    return output;
-  }
-
-  /** Return String representation of SearchQueries */
-  core.String toString() => JSON.stringify(this.toJson());
-
+core.Map _mapMap(core.Map source, [core.Object convert(core.Object source) = null]) {
+  assert(source != null);
+  var result = new dart_collection.LinkedHashMap();
+  source.forEach((core.String key, value) {
+    assert(key != null);
+    if(convert == null) {
+      result[key] = value;
+    } else {
+      result[key] = convert(value);
+    }
+  });
+  return result;
 }
-
