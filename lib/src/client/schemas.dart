@@ -31,7 +31,7 @@ class Context {
   }
 
   /** Return String representation of Context */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -41,6 +41,8 @@ class ContextFacets {
 
   core.String label;
 
+  core.String label_with_op;
+
   /** Create new ContextFacets from JSON data */
   ContextFacets.fromJson(core.Map json) {
     if (json.containsKey("anchor")) {
@@ -48,6 +50,9 @@ class ContextFacets {
     }
     if (json.containsKey("label")) {
       label = json["label"];
+    }
+    if (json.containsKey("label_with_op")) {
+      label_with_op = json["label_with_op"];
     }
   }
 
@@ -61,12 +66,15 @@ class ContextFacets {
     if (label != null) {
       output["label"] = label;
     }
+    if (label_with_op != null) {
+      output["label_with_op"] = label_with_op;
+    }
 
     return output;
   }
 
   /** Return String representation of ContextFacets */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -133,7 +141,7 @@ class Promotion {
   }
 
   /** Return String representation of Promotion */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -184,7 +192,7 @@ class PromotionBodyLines {
   }
 
   /** Return String representation of PromotionBodyLines */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -227,7 +235,7 @@ class PromotionImage {
   }
 
   /** Return String representation of PromotionImage */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -542,7 +550,7 @@ class Query {
   }
 
   /** Return String representation of Query */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -681,7 +689,7 @@ class Result {
   }
 
   /** Return String representation of Result */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -756,7 +764,7 @@ class ResultImage {
   }
 
   /** Return String representation of ResultImage */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -764,12 +772,17 @@ class ResultLabels {
 
   core.String displayName;
 
+  core.String label_with_op;
+
   core.String name;
 
   /** Create new ResultLabels from JSON data */
   ResultLabels.fromJson(core.Map json) {
     if (json.containsKey("displayName")) {
       displayName = json["displayName"];
+    }
+    if (json.containsKey("label_with_op")) {
+      label_with_op = json["label_with_op"];
     }
     if (json.containsKey("name")) {
       name = json["name"];
@@ -783,6 +796,9 @@ class ResultLabels {
     if (displayName != null) {
       output["displayName"] = displayName;
     }
+    if (label_with_op != null) {
+      output["label_with_op"] = label_with_op;
+    }
     if (name != null) {
       output["name"] = name;
     }
@@ -791,7 +807,7 @@ class ResultLabels {
   }
 
   /** Return String representation of ResultLabels */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -874,7 +890,7 @@ class Search {
   }
 
   /** Return String representation of Search */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -925,7 +941,7 @@ class SearchSearchInformation {
   }
 
   /** Return String representation of SearchSearchInformation */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -960,7 +976,7 @@ class SearchSpelling {
   }
 
   /** Return String representation of SearchSpelling */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -995,7 +1011,7 @@ class SearchUrl {
   }
 
   /** Return String representation of SearchUrl */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
