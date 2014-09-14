@@ -6,6 +6,7 @@ import 'package:google_customsearch_v1_api/src/browser_client.dart';
 import "package:google_customsearch_v1_api/customsearch_v1_api_client.dart";
 
 /** Lets you search over a website or collection of websites */
+@deprecated
 class Customsearch extends Client with BrowserClient {
 
   final oauth.OAuth2 auth;
